@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/12 15:43:01 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/14 16:20:47 by gustoliv         ###   ########.fr       */
+/*   Created: 2025/04/14 14:24:51 by gustoliv          #+#    #+#             */
+/*   Updated: 2025/04/14 18:56:26 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	void	*arr;
-
-	if (size != 0 && nmemb > (size_t) - 1 / size)
+	char	*str;
+	size_t	i;
+	size_t	j;
+	
+	i = 0;
+	j = ft_strlen(s1);
+	if (!s1 || !set)
 		return (NULL);
-	arr = (void *)malloc(nmemb * size);
-	if (arr == NULL)
-		return (NULL);
-	ft_memset(arr, 0, nmemb * size);
-	return (arr);
+	while (s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	while (j > i && ft_strchr(set, s1[j - 1]))
+		j--;
+	str = ft_substr(s1, i, j - i);
+	return (str);
 }
