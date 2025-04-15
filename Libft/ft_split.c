@@ -6,34 +6,44 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:02:35 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/14 15:53:56 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:25:10 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_words(char const *s, char c)
+static char	*new_word(char const *s, char c)
 {
+	char	*str;
 	size_t	i;
-	size_t	sep;
-	int		check;
 
 	i = 0;
-	sep = 0;
-	while (s[i])
+	while (s[i] && s[i] != c)
+		i++;
+	str = (char *)malloc((i + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s, i + 1);
+	return (str);
+}
+
+static size_t count_words(char const *s, char c)
+{
+    size_t	count;
+    
+	count = 0;
+	while (*s)
 	{
-		check = 0;
-		while (s[i] == c)
+		if (*s != c)
 		{
-			i++;
-			check = 1;
+			while (*s != c && *s)
+				s++;
+			count++;
 		}
-		if (check == 1)
-			sep++;
-		if (s[i] != '\0')
-			i++;
+		else
+			s++;
 	}
-	return (sep);
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
@@ -42,7 +52,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	i = 0;
-	strs = (char **) malloc((count_words(s, c) + 2) * sizeof(char *));
+	strs = (char **) malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!strs)
 		return (NULL);
 	while (*s)
@@ -59,4 +69,6 @@ char	**ft_split(char const *s, char c)
 		else
 			s++;
 	}
+	strs[i] = NULL;
+	return (strs);
 }
