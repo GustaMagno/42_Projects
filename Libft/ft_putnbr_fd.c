@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 12:03:34 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/16 20:24:55 by gustoliv         ###   ########.fr       */
+/*   Created: 2025/04/16 19:23:33 by gustoliv          #+#    #+#             */
+/*   Updated: 2025/04/16 19:49:44 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void ft_putnbr_fd(int n, int fd)
 {
-	size_t			i;
-	unsigned char	*d;
-	unsigned char	*s;
+	long	nlong;
+	char	c;
 
-	i = 0;
-	d = (unsigned char *) dest;
-	s = (unsigned char *) src;
-	if (!dest && !src)
-		return (NULL);
-	if (d  == s || n == 0)
-		return (dest);
-	if (d > s && d < s + n)
+	nlong = n;
+	if (nlong < 0)
 	{
-		while (n-- > 0)
-			d[n] = s[n];
+		write(fd, "-", 1);
+		nlong *= -1;
+	}
+	if (nlong < 10)
+	{
+		c = nlong + '0';
+		write(fd, &c, 1);		
 	}
 	else
 	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		ft_putnbr_fd(nlong / 10, fd);
+		ft_putnbr_fd(nlong % 10, fd);
 	}
-	return (dest);
-} 
+}
