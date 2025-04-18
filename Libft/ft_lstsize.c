@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:42:52 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/17 17:50:36 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/18 17:20:36 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ft_lstsize(t_list *lst)
 
 	i = 0;
 	if (!lst)
-		return (NULL);
+		return (0);
 	while (lst != NULL)
 	{
 		i++;

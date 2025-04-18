@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 18:20:13 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/18 20:26:07 by gustoliv         ###   ########.fr       */
+/*   Created: 2025/04/18 16:08:29 by gustoliv          #+#    #+#             */
+/*   Updated: 2025/04/18 17:50:36 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*temp;
-
-	if (!lst || !new)
+	if (!lst || !f)
 		return;
-	if (!*lst)
+	while (lst != NULL)
 	{
-		*lst = new;
-		return;
+		f(lst->content);
+		lst = lst->next;
 	}
-	temp = ft_lstlast(*lst);
-	temp->next = new;
 }
+
+// int main(){
+
+// 	t_list *t = ft_lstnew(ft_strdup("asa"));
+// 	t_list *t2 = ft_lstnew(ft_strdup("asa"));
+// 	t->next = t2;
+
+// 	ft_lstiter(t, free);
+// }

@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/17 18:20:13 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/18 20:26:07 by gustoliv         ###   ########.fr       */
+/*   Created: 2025/04/18 16:15:27 by gustoliv          #+#    #+#             */
+/*   Updated: 2025/04/18 20:24:58 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*temp;
+	t_list	*new_element;
+	t_list	*newlist;
 
-	if (!lst || !new)
-		return;
-	if (!*lst)
+	newlist = NULL;
+	if (!lst || !f || !del)
+		return (NULL);
+	while (lst)
 	{
-		*lst = new;
-		return;
+		new_element = ft_lstnew(f(lst->content));
+		if (!new_element)
+		{
+			ft_lstclear(&newlist, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newlist, new_element);
+		lst = lst->next;
 	}
-	temp = ft_lstlast(*lst);
-	temp->next = new;
+	return (newlist);
 }
