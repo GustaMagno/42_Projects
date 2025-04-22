@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 16:08:29 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/18 17:50:36 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/22 21:16:26 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
-
 // int main(){
 
 // 	t_list *t = ft_lstnew(ft_strdup("asa"));

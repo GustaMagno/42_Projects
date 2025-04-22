@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:02:35 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/15 14:25:10 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/20 17:03:34 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,23 @@ static size_t count_words(char const *s, char c)
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+static void	freestr(char **str)
+{
+	int	i;
+	
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
+static char	**ft_split2(char const *s, char c, int i)
 {
 	char	**strs;
-	int		i;
 
-	i = 0;
 	strs = (char **) malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!strs)
 		return (NULL);
@@ -61,14 +72,29 @@ char	**ft_split(char const *s, char c)
 		{
 			strs[i] = new_word(s, c);
 			if (!strs[i])
+			{
+				freestr(strs);
 				return (NULL);
+			}
 			i++;
 			while (*s != c && *s)
 				s++;
 		}
-		else
+		else 
 			s++;
 	}
 	strs[i] = NULL;
+	return (strs);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i;
+	char	**strs;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	strs = ft_split2(s, c, i);
 	return (strs);
 }

@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:11:18 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/17 16:33:37 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/22 15:17:51 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_itoa(int n)
 	nlong = n;
 	i = count_n(nlong);
 	ft_signal(&nlong, &i);
-	str = (char *)malloc((i + 1) * sizeof(char));
+	str = malloc((i + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	if (n < 0)

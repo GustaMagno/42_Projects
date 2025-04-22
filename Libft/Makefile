@@ -52,12 +52,17 @@ BONUSSRC = ft_lstnew.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
 
+
 BONUSOBJ = $(BONUSSRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
+
+bonus: $(BONUSOBJ) $(NAME)
+	$(AR) $(NAME) $(BONUSOBJ)
+	touch bonus
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -67,10 +72,9 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) -rf bonus
 
 re: fclean all
 
-bonus: $(BONUSOBJ)
-	$(AR) $(NAME) $(BONUSOBJ) 
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
