@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:32:07 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/14 18:04:40 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 18:39:36 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strrchr(const char *s, int c)
 			keep = i;
 		i++;
 	}
-	if (c == '\0')
+	if ((char)c == '\0' && s[i] == '\0')
 		return ((char *)&s[i]);
 	if (keep >= 0)
 		return ((char *)&s[keep]);
