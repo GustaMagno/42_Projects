@@ -61,7 +61,7 @@ $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 bonus: $(BONUSOBJ) $(NAME)
-	$(AR) $(NAME) $(BONUSOBJ)
+	$(AR) $(NAME) $(BONUSOBJ) $(OBJS)
 	touch bonus
 
 %.o: %.c

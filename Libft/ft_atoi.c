@@ -2,15 +2,18 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2025/04/11 12:04:23 by gustoliv          #+#    #+#             */
 /*   Updated: 2025/04/11 12:04:23 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned int	i;
 	int				check;
@@ -19,7 +22,7 @@ int		ft_atoi(const char *str)
 	i = 0;
 	check = 0;
 	nb = 0;
-	while((str[i] > 8 && str[i] < 14) || str[i] == 32)
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 12:03:34 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/16 20:24:55 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:14:36 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	s = (unsigned char *) src;
 	if (!dest && !src)
 		return (NULL);
-	if (d  == s || n == 0)
+	if (d == s || n == 0)
 		return (dest);
 	if (d > s && d < s + n)
 	{
@@ -39,4 +39,4 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		}
 	}
 	return (dest);
-} 
+}

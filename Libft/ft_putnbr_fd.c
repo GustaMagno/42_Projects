@@ -6,13 +6,13 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:23:33 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/16 19:49:44 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:20:01 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	long	nlong;
 	char	c;
@@ -26,7 +26,7 @@ void ft_putnbr_fd(int n, int fd)
 	if (nlong < 10)
 	{
 		c = nlong + '0';
-		write(fd, &c, 1);		
+		write(fd, &c, 1);
 	}
 	else
 	{

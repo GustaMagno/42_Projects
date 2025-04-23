@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:11:18 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/22 15:17:51 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:19:12 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	count_n(long n)
 {
 	int	count;
-	
+
 	count = 0;
 	if (n == 0)
 		count++;
@@ -24,12 +24,12 @@ static int	count_n(long n)
 	while (n > 0)
 	{
 		n /= 10;
-		count++; 
+		count++;
 	}
 	return (count);
 }
 
-static void	ft_signal(long	*n, int *i)
+static void	ft_signal(long *n, int *i)
 {
 	if (*n < 0)
 	{
@@ -40,7 +40,7 @@ static void	ft_signal(long	*n, int *i)
 
 char	*ft_itoa(int n)
 {
-	char	*str; 
+	char	*str;
 	int		i;
 	long	nlong;
 

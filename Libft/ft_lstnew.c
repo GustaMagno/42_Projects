@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 13:31:36 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/22 20:12:40 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:21:11 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	newnode->content = content;
 	newnode->next = NULL;
-	return (newnode); 
+	return (newnode);
 }
 
 // int main()

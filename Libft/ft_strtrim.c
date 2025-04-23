@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 14:24:51 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/22 15:23:22 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:18:36 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
-	
+
 	i = 0;
 	j = ft_strlen(s1);
 	if (!s1 || !set)

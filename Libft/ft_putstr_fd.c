@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:14:31 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/16 18:21:01 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:19:44 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
-	
+
 	i = 0;
 	while (s[i])
 		write(fd, &s[i++], 1);

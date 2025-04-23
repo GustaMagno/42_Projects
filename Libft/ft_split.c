@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:02:35 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/20 17:03:34 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:43:21 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static char	*new_word(char const *s, char c)
 	return (str);
 }
 
-static size_t count_words(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
-    size_t	count;
-    
+	size_t	count;
+
 	count = 0;
 	while (*s)
 	{
@@ -49,7 +49,7 @@ static size_t count_words(char const *s, char c)
 static void	freestr(char **str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i])
 	{
@@ -63,7 +63,7 @@ static char	**ft_split2(char const *s, char c, int i)
 {
 	char	**strs;
 
-	strs = (char **) malloc((count_words(s, c) + 1) * sizeof(char *));
+	strs = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!strs)
 		return (NULL);
 	while (*s)
@@ -80,7 +80,7 @@ static char	**ft_split2(char const *s, char c, int i)
 			while (*s != c && *s)
 				s++;
 		}
-		else 
+		else
 			s++;
 	}
 	strs[i] = NULL;
@@ -97,4 +97,12 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	strs = ft_split2(s, c, i);
 	return (strs);
+}
+
+int main()
+{
+	char **strs;
+
+	strs = ft_split("Ola bom dia meu amigo", ' ');
+	printf("%s", strs[2]);
 }
