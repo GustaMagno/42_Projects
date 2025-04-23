@@ -6,7 +6,7 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:02:35 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/04/23 15:43:21 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:11:47 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,4 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	strs = ft_split2(s, c, i);
 	return (strs);
-}
-
-int main()
-{
-	char **strs;
-
-	strs = ft_split("Ola bom dia meu amigo", ' ');
-	printf("%s", strs[2]);
 }
