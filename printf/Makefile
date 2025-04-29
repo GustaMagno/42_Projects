@@ -5,7 +5,7 @@ AR = ar rcs
 RM = rm -f
 
 
-SRCS = ft_printutilities.c
+SRCS = ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 
