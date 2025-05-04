@@ -18,11 +18,10 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean: 
-	$(RM) $(OBJS) $(BONUSOBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) -rf bonus
 
 re: fclean all
 

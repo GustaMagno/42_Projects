@@ -6,11 +6,11 @@
 /*   By: gustoliv <gustoliv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 21:16:54 by gustoliv          #+#    #+#             */
-/*   Updated: 2025/05/04 17:19:48 by gustoliv         ###   ########.fr       */
+/*   Updated: 2025/05/04 17:49:36 by gustoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	conversor_base(t_ll number, t_ll base, char *bases)
 {
